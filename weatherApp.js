@@ -77,7 +77,9 @@ const updateWeather = (weatherData) =>{
   const todayRainChance = document.querySelector('#today-rain-chance');
   let weatherCondition = weatherData.current.condition.text;
   weatherIcon.src = checkWeatherCondition(weatherCondition);
-  todayMax.textContent = `${weatherData.forecast.forecastday[0].day.maxtemp_c}°`;
+  todayMax.forEach(element => {
+    element.textContent = `${weatherData.forecast.forecastday[0].day.maxtemp_c}°`;
+  });
   todayMin.textContent = `${weatherData.forecast.forecastday[0].day.mintemp_c}°`;
   todayNow.textContent = `${weatherData.current.temp_c}°`;
   todayWind.textContent = `${weatherData.current.wind_kph} km/h`;
